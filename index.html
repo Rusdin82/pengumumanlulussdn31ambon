@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pengumuman Kelulusan SD Negeri 31 Ambon 2024/2025</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    .login-box {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+      margin-top: 20px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      width: 100%;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .success {
+      color: green;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Pengumuman Kelulusan</h1>
+  <h2>SD Negeri 31 Ambon</h2>
+  <h3>Tahun Pelajaran 2024/2025</h3>
+
+  <div class="login-box">
+    <label for="nisn">Masukkan NISN:</label>
+    <input type="text" id="nisn" placeholder="Contoh: 3134757441">
+    <button onclick="cekKelulusan()">Lihat Hasil</button>
+
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    const dataSiswa = {
+      "3134757441": ["ADRI BAHRIL IPAENIN", "LULUS"],
+      "3132641775": ["AHMAD DHAFA HENAULUW", "LULUS"],
+      "3135784057": ["AIDIL MUHAMMAD ALI SOMBALATU", "LULUS"],
+      "3132770252": ["AL ALIF TUAHAN", "LULUS"],
+      "3121653272": ["ALVIN FADLAN", "LULUS"],
+      "3120024190": ["AMAAR MUHAMMAD RIDWAN", "LULUS"],
+      "0116134949": ["AMRUL", "LULUS"],
+      "3129686323": ["CITRA LESTARI JOI", "LULUS"],
+      "0139167935": ["DZAKIR ZULFAKAR", "LULUS"],
+      "3133779951": ["FATIN KAPOTA", "LULUS"],
+      "3135647844": ["FITRI WAHYU RUMATEOR", "LULUS"],
+      "3137624881": ["IKBAL", "LULUS"],
+      "3111572012": ["IMEL SAPUTRI", "LULUS"],
+      "3138208530": ["IRFAN", "LULUS"],
+      "3131876657": ["ISRA PARIDA TUAPUTTY", "LULUS"],
+      "3134071095": ["JUWITA LATIFA WALY", "LULUS"],
+      "3113279628": ["KAYSHA AZIZAH HATALA", "LULUS"],
+      "3133481259": ["KIRANA PRAZISKI AKBAR", "LULUS"],
+      "3135067488": ["MARSHA ADELYA RAMADHAN", "LULUS"],
+      "3137583173": ["MUTHIA APRILLIA ILATO", "LULUS"],
+      "3128080410": ["NABIL NAJWAN MAHU", "LULUS"],
+      "3136804265": ["NACITA AMZILA KAIMUDIN", "LULUS"],
+      "3132416419": ["NADHIFAH JAZILATUR RAHMAH", "LULUS"],
+      "3134176821": ["NUR LATIFAH", "LULUS"],
+      "3137207429": ["PUPUT MAHARANI", "LULUS"],
+      "3136692369": ["QYAN NANDRA", "LULUS"],
+      "3137732254": ["RAMADHAN", "LULUS"],
+      "3130848845": ["RASYA CAESAR PRATAMA", "LULUS"],
+      "3123195775": ["RIRIN PUSPITA PUTRI", "LULUS"],
+      "3125305919": ["SAIFUL MUKLIS", "LULUS"],
+      "3131360159": ["YUSRIL HATAUL", "LULUS"],
+      "3136455105": ["YUSUF AL GHIFARY LIEM", "LULUS"]
+    };
+
+    function cekKelulusan() {
+      const nisn = document.getElementById("nisn").value.trim();
+      const resultDiv = document.getElementById("result");
+
+      if (dataSiswa[nisn]) {
+        const [nama, status] = dataSiswa[nisn];
+        resultDiv.innerHTML = `
+          Nama: ${nama} <br>
+          Status: <span class="success">${status}</span>
+        `;
+      } else {
+        resultDiv.innerHTML = `<span class="error">NISN tidak ditemukan. Periksa kembali!</span>`;
+      }
+    }
+  </script>
+
+</body>
+</html>
